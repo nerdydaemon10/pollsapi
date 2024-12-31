@@ -1,0 +1,50 @@
+1. Open cmd and create folder by typing 'mkdir pollsapi'
+2. Go inside pollsapi by typing 'cd pollsapi'
+3. Create virtual environment by typing 'python -m venv venv'
+4. Activate the virtual environment by typing 'venv\scripts\activate'
+5. Before installing some python libraries ensure that pip is up to date.
+   Type 'python -m pip install --upgrade pip'
+6. Create requirements.txt file by typing 'type nul > requirements.txt'
+7. Add Django and djangorestframework libraries to requirements.txt
+   by typing the following:
+   Django==<version>
+   djangorestframework==<version>
+8. Install libraries that you put inside requirements.txt by typing
+   'python -m pip install -r requirements.txt'
+9. After installing some necessary libraries. start to create
+   django project by typing 'django-admin startproject pollsapi .'
+11. Before you start your newest project migrate the database first
+    by typing 'python manage.py migrate'
+12. Create super user or admin by typing 'python manage.py createsuperuser'
+13. To run your newest django project type 'python manage.py runserver'
+14. To test django admin dashboard type go to url 'localhost:8000/admin'
+15. To add app or specific module inside your django project type
+    'python manage.py startapp polls'
+16. Setup djangorestframework in pollsapi/settings.py with the following:
+    INSTALLED_APPS = [
+      '...Some django necessary libraries...',
+      '...Some django necessary libraries...',
+      '...Some django necessary libraries...',
+      'rest_framework'
+    ]
+17. Also add your newest app 'polls' next to 'rest_framework':
+    INSTALLED_APPS = [
+      '...Some django necessary libraries...',
+      '...Some django necessary libraries...',
+      '...Some django necessary libraries...',
+      'rest_framework',
+      'polls'
+    ]
+18. Register django rest framework urls in pollsapi/urls.py with the following:
+    urlpatterns = [
+      path('admin/', admin.site.urls),
+      path('api-auth/', include('rest_framework.urls')),
+    ]
+19. Create some models in polls
+20. After creating some models, create some migration and apply it
+    with the following codes:
+    python manage.py makemigrations polls
+    python manage.py sqlmigrate polls <migration-file-name>
+    python manage.py migrate
+21. Register models to admin by the following code inside polls/admin.py:
+    admin.site.register(<class-name>)
